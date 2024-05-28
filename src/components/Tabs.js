@@ -39,7 +39,7 @@ const Tabs = () => {
           ),
         }}
       >
-        {() => <UpcomingWeather weatherData={weather.list}/>}
+        {() => <UpcomingWeather weatherData={weather.list} />}
       </Tab.Screen>
       {() => <CurrentWeather weatherData={weatherType.list[0]} />}
 
@@ -68,7 +68,9 @@ const Tabs = () => {
             />
           ),
         }}
-      />
+      >
+        {() => <City weatherData={weather.city}/>}
+      </Tab.Screen>
     </Tab.Navigator>
   );
 };
