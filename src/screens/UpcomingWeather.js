@@ -1,5 +1,4 @@
 import {
-  Text,
   SafeAreaView,
   StyleSheet,
   FlatList,
@@ -9,58 +8,7 @@ import {
 import React from "react";
 import ListItem from "../components/ListItem";
 
-const DATA = [
-  {
-    dt: 1661870592,
-    main: {
-      temp_min: 297.56,
-      temp_max: 300.05,
-    },
-    weather: [
-      {
-        main: "Rain",
-      },
-    ],
-  },
-  {
-    dt: 1661870592,
-    main: {
-      temp_min: 245.56,
-      temp_max: 287.05,
-    },
-    weather: [
-      {
-        main: "Clouds",
-      },
-    ],
-  },
-  {
-    dt: 1661870592,
-    main: {
-      temp_min: 305.56,
-      temp_max: 310.05,
-    },
-    weather: [
-      {
-        main: "Clear",
-      },
-    ],
-  },
-];
-
-// const Item = (props) => {
-//   const { dt, min, max, condition } = props;
-//   return (
-//     <View style={styles.item}>
-//       <Feather name={"sun"} size={50} color={"white"} />
-//       <Text style={styles.date}>{dt}</Text>
-//       <Text style={styles.temp}>{min}</Text>
-//       <Text style={styles.temp}>{max}</Text>
-//     </View>
-//   );
-// };
-
-const UpcomingWeather = () => {
+const UpcomingWeather = ({ weatherData }) => {
   const renderItem = ({ item }) => (
     <ListItem
       condition={item.weather[0].main}
@@ -77,9 +25,8 @@ const UpcomingWeather = () => {
         source={require("../../assets/upcoming-background.jpg")}
         style={image}
       >
-        <Text>Upcoming Weather</Text>
         <FlatList
-          data={DATA}
+          data={weatherData}
           renderItem={renderItem}
           keyExtractor={(item) => item.dt}
         />
